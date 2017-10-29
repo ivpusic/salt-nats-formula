@@ -1,0 +1,9 @@
+{% set nats = salt['grains.filter_by']({
+  'default': {
+    'version': '1.0.4',
+    'base_dir': '/srv/nats'
+  },
+},
+merge=salt['pillar.get']('nats:lookup', {}),
+default='default')
+%}

@@ -1,0 +1,14 @@
+[Unit]
+Description=NATS messaging server
+
+[Service]
+ExecStart=/srv/nats/bin/gnatsd
+User=nats
+
+# Restart On Failure
+StartLimitInterval=20s
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
