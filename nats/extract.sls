@@ -26,4 +26,6 @@ nats|extract-archive:
     - user: root
     - group: root
     - watch:
-        - file: nats|cache-archive
+      - file: nats|cache-archive
+    - unless:
+      - test -d {{nats.base_dir}}/gnatsd-v{{nats.version}}-linux-amd64/

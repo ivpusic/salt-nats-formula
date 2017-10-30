@@ -1,8 +1,9 @@
+{% from "nats/map.jinja" import nats with context %}
 [Unit]
 Description=NATS messaging server
 
 [Service]
-ExecStart=/srv/nats/bin/gnatsd
+ExecStart=/srv/nats/gnatsd-v{{nats.version}}-linux-amd64/gnatsd -c /etc/nats.conf
 User=nats
 
 # Restart On Failure
